@@ -1,9 +1,20 @@
 
 from socketserver import BaseRequestHandler, TCPServer
 
+SESSION = {
+    'logado': False,
+}
+
+
+def restrito():
+    if not SESSION['logado']:
+        return "403 Forbidden", "<h1>Acesso negado!</h1>"
+
+    return "200 OK", "<h1>Acesso permitido! Bora lá</h1>"
+
 
 def index():
-    return "<h1>Ola Mundo!</h1>"
+    return "200 OK", "<h1>Ola Mundo!</h1>"
 
 
 class HTTPRequestHander(BaseRequestHandler):
@@ -14,10 +25,11 @@ class HTTPRequestHander(BaseRequestHandler):
         request_lines = self.data.split('\r\n')
         first_line = request_lines[0]
         verb, path, version = first_line.split(' ')
-        status = '200 OK'
 
         if path == '/':
-            response = index()
+            status, response = index()
+        elif path == '/restrito':
+            status, response = restrito()
         else:
             status = '404 Not Found'
             response = '<h1>Pagina nao encontrada!</h1>'
