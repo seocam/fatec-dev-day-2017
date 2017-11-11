@@ -7,6 +7,8 @@ class HTTPRequestHander(BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print(self.data.decode('utf-8'))
 
+        self.request.sendall(b"<h1>Ola Mundo!</h1>")
+
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", 8000
