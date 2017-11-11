@@ -4,7 +4,8 @@ from socketserver import BaseRequestHandler, TCPServer
 
 class HTTPRequestHander(BaseRequestHandler):
     def handle(self):
-        print('Oi! Eu cheguei até aqui! =)')
+        self.data = self.request.recv(1024).strip()
+        print(self.data.decode('utf-8'))
 
 
 if __name__ == "__main__":
