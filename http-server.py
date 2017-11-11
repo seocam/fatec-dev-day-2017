@@ -41,9 +41,9 @@ class HTTPRequestHander(BaseRequestHandler):
             status, response = index()
         elif path == '/restrito':
             status, response = restrito()
-        elif path == '/login':
+        elif path == '/sessao' and verb == 'POST':
             status, response = login()
-        elif path == '/logout':
+        elif path == '/sessao' and verb == 'DELETE':
             status, response = logout()
         else:
             status = '404 Not Found'
