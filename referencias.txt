@@ -1,0 +1,7 @@
+HTTP Headers: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+HTTP Status codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+HTTP Verbs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
+Very complete reference: https://developer.mozilla.org/en-US/docs/Web/HTTP
+
+
