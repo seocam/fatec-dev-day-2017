@@ -10,14 +10,25 @@ def restrito():
     if not SESSION['logado']:
         return "403 Forbidden", "<h1>Acesso negado!</h1>"
 
-    return "200 OK", "<h1>Acesso permitido! Bora lá</h1>"
+    return "200 OK", "<h1>Acesso permitido! Bora la</h1>"
 
 
 def index():
     return "200 OK", "<h1>Ola Mundo!</h1>"
 
 
+def login():
+    SESSION['logado'] = True
+    return "200 OK", "<h1>Bem-vindo fulano</h1>"
+
+
+def logout():
+    SESSION['logado'] = False
+    return "200 OK", "<h1>Ate logo</h1>"
+
+
 class HTTPRequestHander(BaseRequestHandler):
+
     def handle(self):
         self.data = self.request.recv(1024).decode('utf-8').strip()
         print(self.data)
@@ -30,6 +41,10 @@ class HTTPRequestHander(BaseRequestHandler):
             status, response = index()
         elif path == '/restrito':
             status, response = restrito()
+        elif path == '/login':
+            status, response = login()
+        elif path == '/logout':
+            status, response = logout()
         else:
             status = '404 Not Found'
             response = '<h1>Pagina nao encontrada!</h1>'
