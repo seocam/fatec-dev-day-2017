@@ -5,3 +5,9 @@ HTTP Verbs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 Very complete reference: https://developer.mozilla.org/en-US/docs/Web/HTTP
 
 
+Para pequenos projetos:
+    Flask: http://flask.pocoo.org
+
+Para projetos maiores:
+    Django site: http://djangoproject.com/
+    Ótimo Livro: Two Scoops of Django (Daniel Roy and Audrey Roy)
