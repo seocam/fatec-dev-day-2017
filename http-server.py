@@ -7,6 +7,8 @@ class HTTPRequestHander(BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print(self.data.decode('utf-8'))
 
+        self.request.sendall(b"HTTP/1.1 200 OK\r\n")
+        self.request.sendall(b"Content-Type: text/html\r\n\r\n")
         self.request.sendall(b"<h1>Ola Mundo!</h1>")
 
 
